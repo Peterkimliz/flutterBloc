@@ -1,0 +1,44 @@
+version: '3'
+services:
+  postgresdb:
+    container_name: postgresdb
+    image: postgres
+    environment:
+      POSTGRES_USER: peter
+      POSTGRES_PASSWORD: kimani
+      SERVICE_NAME: postgresdb
+    volumes:
+      - postgresdb:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - apinetwork
+    restart: unless-stopped
+
+  #  api application services 
+  # apiapplication:
+  #   container_name: apiapplication
+  #   build: .
+  #   image: digicommerce:v1
+  #   restart: unless-stopped
+  #   ports:
+  #     - 8080:8080
+  #   expose:
+  #     - 8080
+  #   environment:
+  #     SPRING_DATASOURCE_URL: jdbc:postgresql://postgresdb:5432/postgres
+  #     SPRING_DATASOURCE_USERNAME: peter
+  #     SPRING_DATASOURCE_PASSWORD: kimani
+  #     SERVICE_NAME: digicommerce
+
+  #   depends_on:
+  #     - postgresdb        
+  #   networks:
+      # - apinetwork
+
+networks:
+  apinetwork:
+    driver: bridge
+
+volumes:
+  postgresdb: 
