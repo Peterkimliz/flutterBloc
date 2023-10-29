@@ -25,7 +25,10 @@ class Countries extends StatelessWidget {
         title: Text("Countries"),
       ),
       body: Query(
-          options: QueryOptions(document: gql(readRepositories)),
+          options: QueryOptions(
+            document: gql(readRepositories),
+            pollInterval: const Duration(seconds: 10),
+          ),
           builder: (QueryResult result,
               {VoidCallback? refetch, FetchMore? fetchMore}) {
             if (result.hasException) {
@@ -54,26 +57,31 @@ class Countries extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Center(child: Text(continent.name.toString(),style: TextStyle( fontWeight: FontWeight.bold),)),
+                      Center(
+                          child: Text(
+                        continent.name.toString(),
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      )),
                       SizedBox(height: 10),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: continent.countries!
                             .map((e) => Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [ Text(e.emoji!),
-                                      Text(e.name.toString()),
-
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text(e.emoji!),
+                                          Text(e.name.toString()),
+                                        ],
+                                      ),
+                                      Text(e.code.toString()),
                                     ],
                                   ),
-                                  Text(e.code.toString()),
-                                ],
-                              ),
-                            ))
+                                ))
                             .toList(),
                       ),
                     ],
