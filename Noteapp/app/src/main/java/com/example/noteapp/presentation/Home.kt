@@ -21,11 +21,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.noteapp.data.NoteDao
 import com.example.noteapp.presentation.components.AppBar
 import com.example.noteapp.presentation.navigation.Navigation
 
 @Composable
 fun Home(navHostController: NavHostController) {
+
     Scaffold(
         topBar = {
             AppBar(title = "Home", navHostController = navHostController)

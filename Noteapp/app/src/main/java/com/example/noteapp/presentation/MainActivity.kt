@@ -17,6 +17,7 @@ import com.example.noteapp.presentation.theme.NoteAppTheme
 
 class MainActivity : ComponentActivity() {
     lateinit var navHostController: NavHostController;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
