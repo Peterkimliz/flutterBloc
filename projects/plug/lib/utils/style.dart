@@ -1,0 +1,11 @@
+import 'package:flutter/material.dart';
+const blackColor=Color(0XFF121212);
+const lightAmber=Color(0XFFFDF39A);
+const whiteColor=Colors.white;
+const greyColor=Colors.grey;
+const lightPurple=Color(0XFF8C90F3);
+const lightGrey=Color(0XFFF2F2F2);
+const linearGradientOne=Color(0XFFcb69ca);
+const linearGradientTwo=Color(0XFF9967e8);
+const blueColor=Color(0XFF6c60f7);
+const yellowColor=Color(0XFFf4980d);

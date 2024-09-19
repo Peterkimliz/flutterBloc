@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">plug</string>
+    <string name="facebook_app_id">327440603717508</string>
+    <string name="fb_login_protocol_scheme">fb327440603717508</string>
+    <string name="facebook_client_token">9404942d93f44a6304896241cf43df22</string>
+
+</resources>
